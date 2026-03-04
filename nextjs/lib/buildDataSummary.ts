@@ -91,7 +91,7 @@ export function buildDataSummary(
     rowCount: rows.length,
     columnCount: columnNames.length,
     columns,
-    sample: rows.slice(0, 3),
+    sample: rows.slice(0, 10),
     numericStats,
     missingValues,
     categoryValueCounts,

@@ -38,12 +38,10 @@ export default function Home() {
               {/* Metric cards */}
               <MetricCards summary={summary} />
 
-              {/* Two-column layout for table + chat */}
-              <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <DataPreviewTable summary={summary} />
-                </div>
-                <div className="xl:row-span-2 h-[600px] xl:h-auto">
+              {/* Two-column layout: data preview left, chat right */}
+              <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 items-start">
+                <DataPreviewTable summary={summary} />
+                <div className="h-[650px]">
                   <ChatPanel
                     messages={messages}
                     isStreaming={isStreaming}
@@ -53,11 +51,6 @@ export default function Home() {
                     onSend={sendMessage}
                   />
                 </div>
-              </div>
-
-              {/* Full-width chat on small screens */}
-              <div className="xl:hidden h-[500px]">
-                {/* Chat already shown above on large screens */}
               </div>
             </div>
           ) : (
