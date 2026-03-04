@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+    min-height: 100vh;
+    @apply text-gray-100;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #111827;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #dc143c;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff4757;
+  }
+}
+
+@layer components {
+  .metric-card {
+    @apply bg-gradient-card border border-crimson/30 rounded-2xl p-5
+           shadow-card text-center transition-all duration-300
+           hover:border-crimson hover:shadow-crimson hover:-translate-y-0.5;
+  }
+
+  .metric-value {
+    @apply text-3xl font-bold text-crimson;
+  }
+
+  .metric-label {
+    @apply text-xs text-gray-400 uppercase tracking-widest mt-1;
+  }
+
+  .message-assistant {
+    @apply bg-surface-overlay border-l-4 border-crimson rounded-xl p-4
+           shadow-card animate-slide-up;
+  }
+
+  .message-user {
+    @apply bg-surface-panel rounded-xl p-4 animate-slide-up border border-border-subtle;
+  }
+
+  .drop-zone {
+    @apply border-2 border-dashed border-crimson/50 rounded-2xl p-8
+           bg-surface-overlay/50 transition-all duration-200
+           hover:border-crimson hover:bg-surface-overlay
+           cursor-pointer text-center;
+  }
+
+  .drop-zone-active {
+    @apply border-crimson bg-crimson/10 shadow-crimson;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-crimson text-white font-semibold px-5 py-2.5 rounded-full
+           shadow-crimson transition-all duration-200
+           hover:shadow-crimson-lg hover:-translate-y-0.5
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none;
+  }
+
+  .sidebar {
+    @apply w-72 min-h-screen bg-gradient-sidebar border-r-2 border-crimson/40
+           flex flex-col flex-shrink-0;
+  }
+
+  .data-table {
+    @apply w-full text-sm border-collapse;
+  }
+
+  .data-table th {
+    @apply bg-surface-overlay text-crimson font-semibold py-2 px-3 text-left
+           border-b border-border-subtle whitespace-nowrap;
+  }
+
+  .data-table td {
+    @apply py-2 px-3 border-b border-border-subtle text-gray-300 whitespace-nowrap
+           max-w-[200px] overflow-hidden text-ellipsis;
+  }
+
+  .data-table tr:hover td {
+    @apply bg-surface-overlay/50;
+  }
+}
