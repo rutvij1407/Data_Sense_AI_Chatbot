@@ -21,7 +21,7 @@ export function DataPreviewTable({ summary }: DataPreviewTableProps) {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M3 14h18M10 3v18M14 3v18" />
           </svg>
           <span className="text-sm font-semibold text-gray-200">Data Preview</span>
-          <span className="text-xs text-gray-500">(first 10 rows)</span>
+          <span className="text-xs text-gray-500">(first {Math.min(summary.sample.length, 10)} rows)</span>
         </div>
         <svg
           className={`w-4 h-4 text-gray-400 transition-transform ${isOpen ? "rotate-180" : ""}`}
@@ -61,9 +61,9 @@ export function DataPreviewTable({ summary }: DataPreviewTableProps) {
               ))}
             </tbody>
           </table>
-          {summary.rowCount > 3 && (
+          {summary.rowCount > summary.sample.length && (
             <p className="text-xs text-gray-600 px-4 py-2">
-              Showing 3 of {summary.rowCount.toLocaleString()} rows
+              Showing {summary.sample.length} of {summary.rowCount.toLocaleString()} rows
             </p>
           )}
         </div>
