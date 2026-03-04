@@ -1,24 +1,22 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { NextRequest } from "next/server";
 
-const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 const MAX_REQUESTS = 30;
-
-// Soft enforcement for warm serverless containers
 const sessionCounts = new Map<string, number>();
 
 export async function POST(req: NextRequest) {
   try {
-    const { messages, systemPrompt, sessionId } = await req.json();
-
+    // Check API key first — before initializing the client
     if (!process.env.ANTHROPIC_API_KEY) {
       return new Response(
-        JSON.stringify({ error: "API key not configured" }),
+        JSON.stringify({ error: "ANTHROPIC_API_KEY is not configured. Add it in Vercel → Settings → Environment Variables." }),
         { status: 500, headers: { "Content-Type": "application/json" } }
       );
     }
 
-    // Server-side session limit (soft enforcement)
+    const { messages, systemPrompt, sessionId } = await req.json();
+
+    // Session limit
     const count = sessionCounts.get(sessionId) ?? 0;
     if (count >= MAX_REQUESTS) {
       return new Response(
@@ -27,6 +25,8 @@ export async function POST(req: NextRequest) {
       );
     }
     sessionCounts.set(sessionId, count + 1);
+
+    const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
     const stream = await client.messages.stream({
       model: "claude-sonnet-4-20250514",
@@ -62,8 +62,9 @@ export async function POST(req: NextRequest) {
     });
   } catch (error) {
     console.error("Chat error:", error);
+    const message = error instanceof Error ? error.message : "Failed to get AI response";
     return new Response(
-      JSON.stringify({ error: "Failed to get AI response" }),
+      JSON.stringify({ error: message }),
       { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }

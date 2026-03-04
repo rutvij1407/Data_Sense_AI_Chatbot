@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { ChatMessage, DataSummary } from "@/lib/types";
 import { buildSystemPrompt } from "@/lib/buildSystemPrompt";
+import { formatSummaryString } from "@/lib/buildDataSummary";
 import { extractChartSpec, stripChartSpec } from "@/lib/extractChartSpec";
 
 const MAX_REQUESTS = 30;
@@ -17,10 +18,7 @@ interface SessionData {
 function getSession(): SessionData {
   try {
     const stored = localStorage.getItem(SESSION_KEY);
-    if (stored) {
-      const parsed = JSON.parse(stored) as SessionData;
-      return parsed;
-    }
+    if (stored) return JSON.parse(stored) as SessionData;
   } catch {
     // ignore
   }
@@ -54,7 +52,7 @@ export function useChat(summary: DataSummary | null) {
       const session = sessionRef.current!;
       if (session.count >= MAX_REQUESTS) return;
 
-      // Add user message
+      // Display the raw user text in UI
       const userMsg: ChatMessage = {
         id: uuidv4(),
         role: "user",
@@ -78,11 +76,16 @@ export function useChat(summary: DataSummary | null) {
       sessionRef.current = updatedSession;
       setRequestCount(updatedSession.count);
 
-      // Build messages array for API (exclude assistant placeholder)
-      const apiMessages = [...messages, userMsg].map((m) => ({
-        role: m.role,
-        content: m.content,
-      }));
+      // Match reference pattern exactly:
+      // Send a single message with dataset summary prepended to the question.
+      // No conversation history — each question gets full fresh data context.
+      const dataSummary = formatSummaryString(summary);
+      const apiMessages = [
+        {
+          role: "user",
+          content: `Dataset summary:\n${dataSummary}\n\nQuestion: ${userText}`,
+        },
+      ];
 
       try {
         const res = await fetch("/api/chat", {
@@ -90,7 +93,7 @@ export function useChat(summary: DataSummary | null) {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             messages: apiMessages,
-            systemPrompt: buildSystemPrompt(summary),
+            systemPrompt: buildSystemPrompt(),
             sessionId: session.id,
           }),
         });
@@ -100,7 +103,11 @@ export function useChat(summary: DataSummary | null) {
           setMessages((prev) =>
             prev.map((m) =>
               m.id === assistantId
-                ? { ...m, content: errData.error ?? "Error getting response.", isStreaming: false }
+                ? {
+                    ...m,
+                    content: errData.error ?? "Error getting response.",
+                    isStreaming: false,
+                  }
                 : m
             )
           );
@@ -115,22 +122,27 @@ export function useChat(summary: DataSummary | null) {
           const { done, value } = await reader.read();
           if (done) break;
           accumulated += decoder.decode(value, { stream: true });
-          const display = stripChartSpec(accumulated);
           setMessages((prev) =>
             prev.map((m) =>
-              m.id === assistantId ? { ...m, content: display } : m
+              m.id === assistantId
+                ? { ...m, content: stripChartSpec(accumulated) }
+                : m
             )
           );
         }
 
-        // After stream ends, extract chart spec
         const chartSpec = extractChartSpec(accumulated);
         const finalContent = stripChartSpec(accumulated);
 
         setMessages((prev) =>
           prev.map((m) =>
             m.id === assistantId
-              ? { ...m, content: finalContent, chartSpec: chartSpec ?? undefined, isStreaming: false }
+              ? {
+                  ...m,
+                  content: finalContent,
+                  chartSpec: chartSpec ?? undefined,
+                  isStreaming: false,
+                }
               : m
           )
         );
@@ -138,7 +150,11 @@ export function useChat(summary: DataSummary | null) {
         setMessages((prev) =>
           prev.map((m) =>
             m.id === assistantId
-              ? { ...m, content: "Connection error. Please try again.", isStreaming: false }
+              ? {
+                  ...m,
+                  content: "Connection error. Please try again.",
+                  isStreaming: false,
+                }
               : m
           )
         );
@@ -146,12 +162,19 @@ export function useChat(summary: DataSummary | null) {
         setIsStreaming(false);
       }
     },
-    [summary, isStreaming, messages]
+    [summary, isStreaming]
   );
 
   const clearChat = useCallback(() => {
     setMessages([]);
   }, []);
 
-  return { messages, isStreaming, requestCount, maxRequests: MAX_REQUESTS, sendMessage, clearChat };
+  return {
+    messages,
+    isStreaming,
+    requestCount,
+    maxRequests: MAX_REQUESTS,
+    sendMessage,
+    clearChat,
+  };
 }

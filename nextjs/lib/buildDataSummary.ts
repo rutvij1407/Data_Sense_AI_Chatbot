@@ -97,3 +97,15 @@ export function buildDataSummary(
     categoryValueCounts,
   };
 }
+
+export function formatSummaryString(summary: DataSummary): string {
+  return JSON.stringify({
+    columns: summary.columns.map((c) => `${c.name} (${c.dtype})`),
+    shape: { rows: summary.rowCount, columns: summary.columnCount },
+    dtypes: Object.fromEntries(summary.columns.map((c) => [c.name, c.dtype])),
+    sample: summary.sample,
+    numeric_stats: summary.numericStats,
+    missing: summary.missingValues,
+    category_values: summary.categoryValueCounts,
+  });
+}
