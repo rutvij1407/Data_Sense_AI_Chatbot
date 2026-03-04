@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # DataSense AI – Analytics Chatbot
 
 An AI-powered **data analytics chatbot** that lets you:
@@ -96,3 +97,6 @@ The recommended path to Vercel is:
    - A backend service (e.g. rewritten with FastAPI/Flask) for the Next.js frontend.
 
 Concrete steps and issue breakdown are documented in `GITHUB_ISSUES.md`.
+=======
+# chatbot_for_data-analysis
+>>>>>>> 0ea113ce920599aa1623f30bde40ae60e34e6f08

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 streamlit>=1.28,<2
 pandas>=2.0
 numpy>=1.24
@@ -7,3 +8,13 @@ plotly>=5.18
 anthropic>=0.34
 python-dotenv>=1.0
 openpyxl>=3.1
+=======
+streamlit
+pandas
+numpy
+matplotlib
+seaborn
+plotly
+anthropic
+python-dotenv
+>>>>>>> 0ea113ce920599aa1623f30bde40ae60e34e6f08
