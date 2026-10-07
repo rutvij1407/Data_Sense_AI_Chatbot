@@ -1,7 +1,5 @@
 export const runtime = "edge";
 
-const MAX_REQUESTS = 30;
-
 export async function POST(req: Request) {
   try {
     if (!process.env.ANTHROPIC_API_KEY) {
