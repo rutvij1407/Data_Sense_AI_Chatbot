@@ -2,7 +2,8 @@ export const runtime = "edge";
 
 export async function POST(req: Request) {
   try {
-    if (!process.env.ANTHROPIC_API_KEY) {
+    // Demo mode is enforced here too, so the endpoint cannot be used to spend API credits.
+    if (process.env.DEMO_MODE === "true" || !process.env.ANTHROPIC_API_KEY) {
       return new Response(
         JSON.stringify({ error: "Live AI is switched off in this deployment. Use the recorded demo." }),
         { status: 503, headers: { "Content-Type": "application/json" } }
