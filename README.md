@@ -1,98 +1,65 @@
-# DataSense AI – Analytics Chatbot
+**DataSense AI: Chat With Your Data**
 
-An AI-powered **data analytics chatbot** that lets you:
+A web app where you upload a CSV or Excel file, ask questions in plain English and get answers with interactive charts.
 
-- Upload CSV or Excel files
-- See quick dataset stats and summaries
-- Ask natural-language questions about your data
-- Get AI-generated insights and Plotly visualizations
+Live demo: https://data-sense-chatbot.vercel.app
 
-The core app is built with **Python + Streamlit + Pandas + Plotly + Anthropic (Claude)**.
+![Home screen with the sample dataset](docs/screenshots/demo_home.png)
 
----
+**Try it without any setup**
 
-## 1. Project structure
+The hosted version runs in demo mode. It loads a synthetic sales dataset and replays six recorded example chats, so you can see how the product works without any live AI calls and without an API key. Pick an example question and watch the answer and chart appear.
 
-- `app_project_rutvij.py` – main Streamlit app
-- `requirements.txt` – Python dependencies (single source of truth)
-- `GITHUB_ISSUES.md` – design/issue backlog and future React/Next.js migration plan
+![A recorded answer](docs/screenshots/demo_summary.png)
 
----
+![A recorded chart](docs/screenshots/demo_chart.png)
 
-## 2. Prerequisites
+The recorded answers are not typed by hand. A script (nextjs/scripts/generate-demo.mjs) generates the sample data and calculates every figure in the answers from it, so the demo always matches the data.
 
-- Python **3.9+**
-- An Anthropic (Claude) API key
+**What it does**
 
----
+* Upload a CSV, XLSX or XLS file and see its shape, columns, missing values and a preview.
+* Ask questions in plain English about the data.
+* Get short answers with the key numbers in bold, and interactive Plotly charts on request.
+* In live mode, answers come from the Claude API using a summary of the dataset. Only a summary is sent, not the whole file: column names and types, basic statistics, value counts and the first ten rows.
 
-## 3. Setup and run locally
+**Two versions**
 
-1. **Clone the repo** (or download the folder).
-2. (Recommended) Create and activate a virtual environment:
+* Next.js web app (folder nextjs): the version that is deployed. It has a demo mode and a live mode.
+* Streamlit app (app_project_rutvij.py): the original Python prototype, kept for reference.
 
-   ```bash
-   python -m venv venv
-   source venv/bin/activate       # macOS / Linux
-   # venv\Scripts\activate       # Windows (PowerShell or cmd)
-   ```
+**How demo mode works**
 
-3. **Install dependencies**:
+* The app asks /api/config whether to run in demo mode. It does when no ANTHROPIC_API_KEY is set, or when DEMO_MODE is set to true.
+* In demo mode the chat never calls the API. It matches your question to a recorded chat and replays it with a typing effect.
+* If the config call fails, the app falls back to demo mode, so it can never make an AI call by accident.
+* The chat route answers with a 503 error when no key is set.
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+**Run the web app locally**
 
-4. **Create a `.env` file** in the project root:
+1. Go to the nextjs folder and run npm install.
+2. Run npm run dev and open localhost on port 3000. With no key set you get demo mode.
+3. For live mode, create nextjs/.env.local containing ANTHROPIC_API_KEY with your own key. Never commit this file. It is already ignored by git.
+4. To force demo mode even when a key is present, set DEMO_MODE to true.
 
-   ```bash
-   touch .env
-   ```
+To rebuild the sample data and recorded chats, run node scripts/generate-demo.mjs inside the nextjs folder.
 
-   Add your Anthropic key (do NOT commit this file):
+**Tech stack**
 
-   ```bash
-   ANTHROPIC_API_KEY=sk-...
-   ```
+Next.js 14, React 18, TypeScript, Tailwind CSS, Plotly, Papa Parse and SheetJS for file parsing, Framer Motion, and the Anthropic API for live mode. Deployed on Vercel.
 
-5. **Run the app**:
+**Repository layout**
 
-   ```bash
-   streamlit run app_project_rutvij.py
-   ```
+* nextjs/app: pages and API routes (chat, parse, config)
+* nextjs/components: chat, charts, dataset views and layout
+* nextjs/hooks: chat, dataset and demo mode logic
+* nextjs/lib/demo: the sample data and the matching of questions to recorded chats
+* nextjs/scripts: the demo data generator
+* app_project_rutvij.py: the Streamlit prototype (see requirements.txt)
+* docs: extra notes and screenshots
 
-6. Open the URL shown in the terminal (usually `http://localhost:8501`).
+**Author**
 
----
-
-## 4. High-level architecture
-
-- **Frontend UI**: Streamlit app (`app_project_rutvij.py`)
-  - Sidebar: file upload and dataset info
-  - Main area: metric cards, preview, statistics, chat UI, and charts
-- **Data layer**: Pandas DataFrame created from uploaded CSV/Excel
-- **Visualization**: Plotly Express / Graph Objects charts rendered directly in Streamlit
-- **AI layer**: Anthropic Claude API
-  - The app builds a **dataset summary**
-  - Sends summary + user question to Claude
-  - Displays the model’s explanation
-  - Optionally executes safe Plotly code returned by the model to render charts
-
-For future work, see `GITHUB_ISSUES.md` for a full list of planned improvements including a **React + Next.js** frontend and Vercel deployment.
-
----
-
-## 5. Notes on deployment (Vercel / Next.js)
-
-This project currently runs as a **Streamlit app**, which is ideal for Python data workflows but not natively hosted on Vercel.
-
-The recommended path to Vercel is:
-
-1. Create a **separate React + Next.js frontend** that:
-   - Runs on Vercel
-   - Talks to a backend API (Python or Node) for data analysis and Claude calls
-2. Keep the current Streamlit app as:
-   - A reference implementation of the analysis logic, or
-   - A backend service (e.g. rewritten with FastAPI/Flask) for the Next.js frontend.
-
-Concrete steps and issue breakdown are documented in `GITHUB_ISSUES.md`.
+Rutvij Reddy Vakati, MS in Data Analytics Engineering, George Mason University.
+LinkedIn: https://linkedin.com/in/vakati-rutvij-1167rutvij
+GitHub: https://github.com/rutvij1407

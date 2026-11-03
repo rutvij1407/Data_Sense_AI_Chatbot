@@ -3,9 +3,10 @@
 interface HeaderProps {
   requestCount: number;
   maxRequests: number;
+  demo?: boolean;
 }
 
-export function Header({ requestCount, maxRequests }: HeaderProps) {
+export function Header({ requestCount, maxRequests, demo = false }: HeaderProps) {
   const remaining = maxRequests - requestCount;
   const pct = (requestCount / maxRequests) * 100;
 
@@ -25,7 +26,14 @@ export function Header({ requestCount, maxRequests }: HeaderProps) {
       </div>
 
       <div className="flex items-center gap-4">
+        {demo && (
+          <span className="text-xs text-crimson-pale bg-crimson/10 border border-crimson/30 px-3 py-1 rounded-full">
+            Demo mode: recorded answers on sample data, no live AI
+          </span>
+        )}
+
         {/* Request counter */}
+        {!demo && (
         <div className="flex items-center gap-2">
           <div className="text-right">
             <p className="text-xs text-gray-400 leading-none">AI requests</p>
@@ -40,14 +48,15 @@ export function Header({ requestCount, maxRequests }: HeaderProps) {
             />
           </div>
         </div>
+        )}
 
-        {remaining <= 5 && remaining > 0 && (
+        {!demo && remaining <= 5 && remaining > 0 && (
           <span className="text-xs text-crimson-pale bg-crimson/10 border border-crimson/30 px-2 py-0.5 rounded-full">
             {remaining} left
           </span>
         )}
 
-        {remaining === 0 && (
+        {!demo && remaining === 0 && (
           <span className="text-xs text-red-400 bg-red-900/20 border border-red-500/30 px-2 py-0.5 rounded-full">
             Limit reached
           </span>
@@ -55,8 +64,8 @@ export function Header({ requestCount, maxRequests }: HeaderProps) {
 
         {/* Powered by badge */}
         <div className="hidden sm:flex items-center gap-1.5 text-xs text-gray-500 border border-border-subtle rounded-full px-3 py-1">
-          <span>Powered by</span>
-          <span className="text-crimson font-medium">Claude AI</span>
+          <span>{demo ? "Mode" : "Powered by"}</span>
+          <span className="text-crimson font-medium">{demo ? "Recorded demo" : "Claude AI"}</span>
         </div>
       </div>
     </header>

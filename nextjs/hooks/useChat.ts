@@ -6,6 +6,7 @@ import { ChatMessage, DataSummary } from "@/lib/types";
 import { buildSystemPrompt } from "@/lib/buildSystemPrompt";
 import { formatSummaryString } from "@/lib/buildDataSummary";
 import { extractChartSpec, stripChartSpec } from "@/lib/extractChartSpec";
+import { DEMO_CHATS, DEMO_FILE_NAME, matchDemoChat } from "@/lib/demo/demo";
 
 const MAX_REQUESTS = 30;
 const SESSION_KEY = "datasense_session";
@@ -33,7 +34,9 @@ function incrementSession(session: SessionData): SessionData {
   return updated;
 }
 
-export function useChat(summary: DataSummary | null) {
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+export function useChat(summary: DataSummary | null, demo = false) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isStreaming, setIsStreaming] = useState(false);
   const [requestCount, setRequestCount] = useState(0);
@@ -48,6 +51,43 @@ export function useChat(summary: DataSummary | null) {
   const sendMessage = useCallback(
     async (userText: string) => {
       if (!summary || isStreaming) return;
+
+      // Demo mode: replay a recorded answer. No network call, no AI.
+      if (demo) {
+        const userMsg: ChatMessage = { id: uuidv4(), role: "user", content: userText, timestamp: new Date() };
+        const assistantId = uuidv4();
+        setMessages((prev) => [
+          ...prev,
+          userMsg,
+          { id: assistantId, role: "assistant", content: "", timestamp: new Date(), isStreaming: true },
+        ]);
+        setIsStreaming(true);
+        await sleep(600);
+
+        let text: string;
+        let chartSpec: ChatMessage["chartSpec"];
+        const chat = summary.fileName === DEMO_FILE_NAME ? matchDemoChat(userText) : null;
+        if (chat) {
+          text = chat.answer;
+          chartSpec = chat.chartSpec;
+        } else if (summary.fileName !== DEMO_FILE_NAME) {
+          text = "Live AI is switched off in this demo, so I can only answer questions about the **sample dataset**. Remove this file and load the sample dataset to see recorded example chats.";
+        } else {
+          text = "This is a recorded demo, so I can only replay the example questions:\n\n" +
+            DEMO_CHATS.map((c) => `* ${c.question}`).join("\n");
+        }
+
+        const step = Math.max(2, Math.ceil(text.length / 90));
+        for (let i = step; i < text.length; i += step) {
+          setMessages((prev) => prev.map((m) => (m.id === assistantId ? { ...m, content: text.slice(0, i) } : m)));
+          await sleep(18);
+        }
+        setMessages((prev) =>
+          prev.map((m) => (m.id === assistantId ? { ...m, content: text, chartSpec, isStreaming: false } : m))
+        );
+        setIsStreaming(false);
+        return;
+      }
 
       const session = sessionRef.current!;
       if (session.count >= MAX_REQUESTS) return;
@@ -162,7 +202,7 @@ export function useChat(summary: DataSummary | null) {
         setIsStreaming(false);
       }
     },
-    [summary, isStreaming]
+    [summary, isStreaming, demo]
   );
 
   const clearChat = useCallback(() => {

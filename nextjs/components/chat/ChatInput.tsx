@@ -8,6 +8,7 @@ interface ChatInputProps {
   isDisabled: boolean;
   requestCount: number;
   maxRequests: number;
+  demo?: boolean;
 }
 
 export function ChatInput({
@@ -16,10 +17,11 @@ export function ChatInput({
   isDisabled,
   requestCount,
   maxRequests,
+  demo = false,
 }: ChatInputProps) {
   const [value, setValue] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-  const remaining = maxRequests - requestCount;
+  const remaining = demo ? Number.POSITIVE_INFINITY : maxRequests - requestCount;
   const canSend = !isStreaming && !isDisabled && value.trim().length > 0 && remaining > 0;
 
   // Auto-resize textarea
@@ -69,7 +71,9 @@ export function ChatInput({
             !isDisabled
               ? remaining === 0
                 ? "Session limit reached"
-                : "Ask about your data... (Enter to send, Shift+Enter for newline)"
+                : demo
+                  ? "Pick an example question above, or type something similar"
+                  : "Ask about your data... (Enter to send, Shift+Enter for newline)"
               : "Upload a dataset to start chatting..."
           }
           className="flex-1 bg-transparent text-sm text-gray-200 placeholder-gray-600 resize-none outline-none leading-relaxed min-h-[20px]"
@@ -102,7 +106,9 @@ export function ChatInput({
           {isDisabled ? "Upload a file to enable chat" : "Shift+Enter for new line"}
         </p>
         <p className="text-xs text-gray-600">
-          {remaining > 0 ? (
+          {demo ? (
+            <span className="text-gray-500">Recorded answers, no live AI</span>
+          ) : remaining > 0 ? (
             <>{remaining} <span className="text-gray-700">requests remaining</span></>
           ) : (
             <span className="text-red-500">Limit reached</span>

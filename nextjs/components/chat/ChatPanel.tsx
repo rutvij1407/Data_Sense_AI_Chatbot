@@ -12,6 +12,8 @@ interface ChatPanelProps {
   maxRequests: number;
   summary: DataSummary | null;
   onSend: (text: string) => void;
+  demo?: boolean;
+  suggestions?: string[];
 }
 
 export function ChatPanel({
@@ -21,12 +23,20 @@ export function ChatPanel({
   maxRequests,
   summary,
   onSend,
+  demo = false,
+  suggestions,
 }: ChatPanelProps) {
   const bottomRef = useRef<HTMLDivElement>(null);
 
   // Auto-scroll to bottom on new messages or streaming updates
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    // Charts draw a moment after the message appears, so scroll again once they have.
+    const last = messages[messages.length - 1];
+    if (last?.chartSpec && !last.isStreaming) {
+      const timer = setTimeout(() => bottomRef.current?.scrollIntoView({ behavior: "auto" }), 900);
+      return () => clearTimeout(timer);
+    }
   }, [messages]);
 
   return (
@@ -58,12 +68,12 @@ export function ChatPanel({
                   <p className="text-sm text-gray-500 mt-1">Ask me anything about your dataset</p>
                 </div>
                 <div className="flex flex-wrap gap-2 justify-center max-w-lg">
-                  {[
+                  {(suggestions ?? [
                     "What are the key statistics?",
                     "Show a bar chart",
                     "Any missing values?",
                     "Summarize this dataset",
-                  ].map((suggestion) => (
+                  ]).map((suggestion) => (
                     <button
                       key={suggestion}
                       onClick={() => onSend(suggestion)}
@@ -98,6 +108,7 @@ export function ChatPanel({
         isDisabled={!summary}
         requestCount={requestCount}
         maxRequests={maxRequests}
+        demo={demo}
       />
     </div>
   );

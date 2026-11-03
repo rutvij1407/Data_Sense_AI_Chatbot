@@ -1,0 +1,1723 @@
+{
+ "fileName": "sample_sales.csv",
+ "rows": [
+  {
+   "order_id": "ORD1001",
+   "order_date": "2025-01-01",
+   "region": "North",
+   "category": "Electronics",
+   "units": 9,
+   "unit_price": 290.35,
+   "revenue": 2613.15,
+   "customer_rating": 4
+  },
+  {
+   "order_id": "ORD1002",
+   "order_date": "2025-01-02",
+   "region": "East",
+   "category": "Furniture",
+   "units": 2,
+   "unit_price": 198.34,
+   "revenue": 495.85,
+   "customer_rating": 4.5
+  },
+  {
+   "order_id": "ORD1003",
+   "order_date": "2025-01-03",
+   "region": "East",
+   "category": "Office Supplies",
+   "units": 9,
+   "unit_price": 26.44,
+   "revenue": 297.45,
+   "customer_rating": 3.5
+  },
+  {
+   "order_id": "ORD1004",
+   "order_date": "2025-01-05",
+   "region": "North",
+   "category": "Electronics",
+   "units": 4,
+   "unit_price": 277.51,
+   "revenue": 1110.04,
+   "customer_rating": 4.2
+  },
+  {
+   "order_id": "ORD1005",
+   "order_date": "2025-01-16",
+   "region": "East",
+   "category": "Office Supplies",
+   "units": 5,
+   "unit_price": 25.33,
+   "revenue": 158.31,
+   "customer_rating": 3
+  },
+  {
+   "order_id": "ORD1006",
+   "order_date": "2025-01-21",
+   "region": "East",
+   "category": "Clothing",
+   "units": 9,
+   "unit_price": 51.35,
+   "revenue": 577.69,
+   "customer_rating": 4.2
+  },
+  {
+   "order_id": "ORD1007",
+   "order_date": "2025-01-21",
+   "region": "East",
+   "category": "Electronics",
+   "units": 4,
+   "unit_price": 283.3,
+   "revenue": 1416.5,
+   "customer_rating": 4
+  },
+  {
+   "order_id": "ORD1008",
+   "order_date": "2025-01-24",
+   "region": "West",
+   "category": "Clothing",
+   "units": 3,
+   "unit_price": 49.73,
+   "revenue": 164.11,
+   "customer_rating": 3.2
+  },
+  {
+   "order_id": "ORD1009",
+   "order_date": "2025-01-27",
+   "region": "West",
+   "category": "Electronics",
+   "units": 2,
+   "unit_price": 222.24,
+   "revenue": 488.93,
+   "customer_rating": 4.5
+  },
+  {
+   "order_id": "ORD1010",
+   "order_date": "2025-02-08",
+   "region": "North",
+   "category": "Electronics",
+   "units": 3,
+   "unit_price": 246.33,
+   "revenue": 738.99,
+   "customer_rating": 4.3
+  },
+  {
+   "order_id": "ORD1011",
+   "order_date": "2025-02-14",
+   "region": "West",
+   "category": "Furniture",
+   "units": 5,
+   "unit_price": 210.48,
+   "revenue": 1157.64,
+   "customer_rating": 3.7
+  },
+  {
+   "order_id": "ORD1012",
+   "order_date": "2025-02-25",
+   "region": "East",
+   "category": "Clothing",
+   "units": 9,
+   "unit_price": 56.65,
+   "revenue": 637.31,
+   "customer_rating": 3.4
+  },
+  {
+   "order_id": "ORD1013",
+   "order_date": "2025-03-01",
+   "region": "West",
+   "category": "Electronics",
+   "units": 9,
+   "unit_price": 236.36,
+   "revenue": 2339.96,
+   "customer_rating": 4.9
+  },
+  {
+   "order_id": "ORD1014",
+   "order_date": "2025-03-02",
+   "region": "East",
+   "category": "Office Supplies",
+   "units": 3,
+   "unit_price": 21.12,
+   "revenue": 79.2,
+   "customer_rating": null
+  },
+  {
+   "order_id": "ORD1015",
+   "order_date": "2025-03-02",
+   "region": "East",
+   "category": "Office Supplies",
+   "units": 3,
+   "unit_price": 27.23,
+   "revenue": 102.11,
+   "customer_rating": 4.3
+  },
+  {
+   "order_id": "ORD1016",
+   "order_date": "2025-03-07",
+   "region": "North",
+   "category": "Furniture",
+   "units": 9,
+   "unit_price": 187.66,
+   "revenue": 1688.94,
+   "customer_rating": 4.2
+  },
+  {
+   "order_id": "ORD1017",
+   "order_date": "2025-03-11",
+   "region": "East",
+   "category": "Clothing",
+   "units": 3,
+   "unit_price": 60.35,
+   "revenue": 226.31,
+   "customer_rating": 4.6
+  },
+  {
+   "order_id": "ORD1018",
+   "order_date": "2025-03-12",
+   "region": "North",
+   "category": "Clothing",
+   "units": 2,
+   "unit_price": 51.83,
+   "revenue": 103.66,
+   "customer_rating": 4.2
+  },
+  {
+   "order_id": "ORD1019",
+   "order_date": "2025-03-15",
+   "region": "West",
+   "category": "Office Supplies",
+   "units": 5,
+   "unit_price": 20.92,
+   "revenue": 115.06,
+   "customer_rating": null
+  },
+  {
+   "order_id": "ORD1020",
+   "order_date": "2025-03-15",
+   "region": "South",
+   "category": "Electronics",
+   "units": 3,
+   "unit_price": 290.42,
+   "revenue": 740.57,
+   "customer_rating": 5
+  },
+  {
+   "order_id": "ORD1021",
+   "order_date": "2025-03-19",
+   "region": "North",
+   "category": "Furniture",
+   "units": 7,
+   "unit_price": 214.83,
+   "revenue": 1503.81,
+   "customer_rating": 3.9
+  },
+  {
+   "order_id": "ORD1022",
+   "order_date": "2025-03-20",
+   "region": "West",
+   "category": "Office Supplies",
+   "units": 6,
+   "unit_price": 21.72,
+   "revenue": 143.35,
+   "customer_rating": 3.9
+  },
+  {
+   "order_id": "ORD1023",
+   "order_date": "2025-03-22",
+   "region": "North",
+   "category": "Electronics",
+   "units": 6,
+   "unit_price": 261.87,
+   "revenue": 1571.22,
+   "customer_rating": 4.3
+  },
+  {
+   "order_id": "ORD1024",
+   "order_date": "2025-03-22",
+   "region": "South",
+   "category": "Electronics",
+   "units": 2,
+   "unit_price": 222.21,
+   "revenue": 377.76,
+   "customer_rating": 4.9
+  },
+  {
+   "order_id": "ORD1025",
+   "order_date": "2025-03-27",
+   "region": "West",
+   "category": "Furniture",
+   "units": 5,
+   "unit_price": 214.92,
+   "revenue": 1182.06,
+   "customer_rating": 4.6
+  },
+  {
+   "order_id": "ORD1026",
+   "order_date": "2025-03-28",
+   "region": "East",
+   "category": "Clothing",
+   "units": 2,
+   "unit_price": 50.51,
+   "revenue": 126.27,
+   "customer_rating": 4.1
+  },
+  {
+   "order_id": "ORD1027",
+   "order_date": "2025-04-02",
+   "region": "North",
+   "category": "Clothing",
+   "units": 5,
+   "unit_price": 47.35,
+   "revenue": 236.75,
+   "customer_rating": 3.5
+  },
+  {
+   "order_id": "ORD1028",
+   "order_date": "2025-04-04",
+   "region": "West",
+   "category": "Furniture",
+   "units": 2,
+   "unit_price": 221.28,
+   "revenue": 486.82,
+   "customer_rating": 3.2
+  },
+  {
+   "order_id": "ORD1029",
+   "order_date": "2025-04-05",
+   "region": "West",
+   "category": "Electronics",
+   "units": 5,
+   "unit_price": 276.57,
+   "revenue": 1521.13,
+   "customer_rating": null
+  },
+  {
+   "order_id": "ORD1030",
+   "order_date": "2025-04-07",
+   "region": "West",
+   "category": "Office Supplies",
+   "units": 2,
+   "unit_price": 21.22,
+   "revenue": 46.68,
+   "customer_rating": 3.8
+  },
+  {
+   "order_id": "ORD1031",
+   "order_date": "2025-04-08",
+   "region": "East",
+   "category": "Office Supplies",
+   "units": 5,
+   "unit_price": 23.91,
+   "revenue": 149.44,
+   "customer_rating": 3
+  },
+  {
+   "order_id": "ORD1032",
+   "order_date": "2025-04-09",
+   "region": "North",
+   "category": "Office Supplies",
+   "units": 7,
+   "unit_price": 24.8,
+   "revenue": 173.6,
+   "customer_rating": 4.3
+  },
+  {
+   "order_id": "ORD1033",
+   "order_date": "2025-04-11",
+   "region": "South",
+   "category": "Office Supplies",
+   "units": 8,
+   "unit_price": 26.46,
+   "revenue": 179.93,
+   "customer_rating": 3.2
+  },
+  {
+   "order_id": "ORD1034",
+   "order_date": "2025-04-14",
+   "region": "North",
+   "category": "Furniture",
+   "units": 5,
+   "unit_price": 162.75,
+   "revenue": 813.75,
+   "customer_rating": 3.9
+  },
+  {
+   "order_id": "ORD1035",
+   "order_date": "2025-04-15",
+   "region": "North",
+   "category": "Furniture",
+   "units": 7,
+   "unit_price": 187.03,
+   "revenue": 1309.21,
+   "customer_rating": 3.9
+  },
+  {
+   "order_id": "ORD1036",
+   "order_date": "2025-04-20",
+   "region": "West",
+   "category": "Furniture",
+   "units": 8,
+   "unit_price": 185.82,
+   "revenue": 1635.22,
+   "customer_rating": 3.4
+  },
+  {
+   "order_id": "ORD1037",
+   "order_date": "2025-04-22",
+   "region": "West",
+   "category": "Office Supplies",
+   "units": 6,
+   "unit_price": 22.94,
+   "revenue": 151.4,
+   "customer_rating": 3.4
+  },
+  {
+   "order_id": "ORD1038",
+   "order_date": "2025-05-05",
+   "region": "West",
+   "category": "Office Supplies",
+   "units": 2,
+   "unit_price": 19.01,
+   "revenue": 41.82,
+   "customer_rating": 4.2
+  },
+  {
+   "order_id": "ORD1039",
+   "order_date": "2025-05-06",
+   "region": "West",
+   "category": "Office Supplies",
+   "units": 2,
+   "unit_price": 19.43,
+   "revenue": 42.75,
+   "customer_rating": 4
+  },
+  {
+   "order_id": "ORD1040",
+   "order_date": "2025-05-07",
+   "region": "West",
+   "category": "Electronics",
+   "units": 6,
+   "unit_price": 282.92,
+   "revenue": 1867.27,
+   "customer_rating": 3.9
+  },
+  {
+   "order_id": "ORD1041",
+   "order_date": "2025-05-08",
+   "region": "North",
+   "category": "Electronics",
+   "units": 7,
+   "unit_price": 218.92,
+   "revenue": 1532.44,
+   "customer_rating": null
+  },
+  {
+   "order_id": "ORD1042",
+   "order_date": "2025-05-10",
+   "region": "North",
+   "category": "Electronics",
+   "units": 6,
+   "unit_price": 230.99,
+   "revenue": 1385.94,
+   "customer_rating": 3.5
+  },
+  {
+   "order_id": "ORD1043",
+   "order_date": "2025-05-10",
+   "region": "West",
+   "category": "Office Supplies",
+   "units": 3,
+   "unit_price": 21.62,
+   "revenue": 71.35,
+   "customer_rating": 3.1
+  },
+  {
+   "order_id": "ORD1044",
+   "order_date": "2025-05-13",
+   "region": "East",
+   "category": "Office Supplies",
+   "units": 4,
+   "unit_price": 21.66,
+   "revenue": 108.3,
+   "customer_rating": 4.2
+  },
+  {
+   "order_id": "ORD1045",
+   "order_date": "2025-05-16",
+   "region": "North",
+   "category": "Furniture",
+   "units": 2,
+   "unit_price": 206.22,
+   "revenue": 412.44,
+   "customer_rating": 3.4
+  },
+  {
+   "order_id": "ORD1046",
+   "order_date": "2025-05-17",
+   "region": "South",
+   "category": "Office Supplies",
+   "units": 3,
+   "unit_price": 22.66,
+   "revenue": 57.78,
+   "customer_rating": 4.1
+  },
+  {
+   "order_id": "ORD1047",
+   "order_date": "2025-05-22",
+   "region": "North",
+   "category": "Office Supplies",
+   "units": 5,
+   "unit_price": 23.92,
+   "revenue": 119.6,
+   "customer_rating": 3.4
+  },
+  {
+   "order_id": "ORD1048",
+   "order_date": "2025-05-24",
+   "region": "South",
+   "category": "Electronics",
+   "units": 6,
+   "unit_price": 205.8,
+   "revenue": 1049.58,
+   "customer_rating": 3.6
+  },
+  {
+   "order_id": "ORD1049",
+   "order_date": "2025-05-25",
+   "region": "South",
+   "category": "Clothing",
+   "units": 4,
+   "unit_price": 54.22,
+   "revenue": 184.35,
+   "customer_rating": 4.1
+  },
+  {
+   "order_id": "ORD1050",
+   "order_date": "2025-05-27",
+   "region": "North",
+   "category": "Clothing",
+   "units": 7,
+   "unit_price": 56.87,
+   "revenue": 398.09,
+   "customer_rating": 3.7
+  },
+  {
+   "order_id": "ORD1051",
+   "order_date": "2025-05-28",
+   "region": "East",
+   "category": "Office Supplies",
+   "units": 4,
+   "unit_price": 25.29,
+   "revenue": 126.45,
+   "customer_rating": 3.3
+  },
+  {
+   "order_id": "ORD1052",
+   "order_date": "2025-06-02",
+   "region": "West",
+   "category": "Office Supplies",
+   "units": 3,
+   "unit_price": 24.15,
+   "revenue": 79.69,
+   "customer_rating": 3.7
+  },
+  {
+   "order_id": "ORD1053",
+   "order_date": "2025-06-02",
+   "region": "East",
+   "category": "Office Supplies",
+   "units": 2,
+   "unit_price": 18.91,
+   "revenue": 47.27,
+   "customer_rating": 3.3
+  },
+  {
+   "order_id": "ORD1054",
+   "order_date": "2025-06-03",
+   "region": "East",
+   "category": "Clothing",
+   "units": 7,
+   "unit_price": 56.01,
+   "revenue": 490.09,
+   "customer_rating": 3.9
+  },
+  {
+   "order_id": "ORD1055",
+   "order_date": "2025-06-10",
+   "region": "South",
+   "category": "Electronics",
+   "units": 5,
+   "unit_price": 229.67,
+   "revenue": 976.1,
+   "customer_rating": 4.2
+  },
+  {
+   "order_id": "ORD1056",
+   "order_date": "2025-06-12",
+   "region": "North",
+   "category": "Furniture",
+   "units": 1,
+   "unit_price": 180.56,
+   "revenue": 180.56,
+   "customer_rating": 3.9
+  },
+  {
+   "order_id": "ORD1057",
+   "order_date": "2025-06-14",
+   "region": "East",
+   "category": "Electronics",
+   "units": 7,
+   "unit_price": 281.8,
+   "revenue": 2465.75,
+   "customer_rating": 4.4
+  },
+  {
+   "order_id": "ORD1058",
+   "order_date": "2025-06-15",
+   "region": "North",
+   "category": "Clothing",
+   "units": 1,
+   "unit_price": 54.9,
+   "revenue": 54.9,
+   "customer_rating": 3.6
+  },
+  {
+   "order_id": "ORD1059",
+   "order_date": "2025-06-15",
+   "region": "East",
+   "category": "Office Supplies",
+   "units": 4,
+   "unit_price": 27.47,
+   "revenue": 137.35,
+   "customer_rating": 3.2
+  },
+  {
+   "order_id": "ORD1060",
+   "order_date": "2025-06-17",
+   "region": "East",
+   "category": "Office Supplies",
+   "units": 4,
+   "unit_price": 20.22,
+   "revenue": 101.1,
+   "customer_rating": 2.8
+  },
+  {
+   "order_id": "ORD1061",
+   "order_date": "2025-06-18",
+   "region": "East",
+   "category": "Office Supplies",
+   "units": 3,
+   "unit_price": 21.56,
+   "revenue": 80.85,
+   "customer_rating": 3.3
+  },
+  {
+   "order_id": "ORD1062",
+   "order_date": "2025-06-20",
+   "region": "East",
+   "category": "Office Supplies",
+   "units": 8,
+   "unit_price": 24.55,
+   "revenue": 245.5,
+   "customer_rating": 4.4
+  },
+  {
+   "order_id": "ORD1063",
+   "order_date": "2025-06-23",
+   "region": "South",
+   "category": "Office Supplies",
+   "units": 1,
+   "unit_price": 19.15,
+   "revenue": 16.28,
+   "customer_rating": 3.7
+  },
+  {
+   "order_id": "ORD1064",
+   "order_date": "2025-06-25",
+   "region": "East",
+   "category": "Clothing",
+   "units": 3,
+   "unit_price": 65.24,
+   "revenue": 244.65,
+   "customer_rating": 3.9
+  },
+  {
+   "order_id": "ORD1065",
+   "order_date": "2025-06-26",
+   "region": "West",
+   "category": "Office Supplies",
+   "units": 4,
+   "unit_price": 24.28,
+   "revenue": 106.83,
+   "customer_rating": 3.2
+  },
+  {
+   "order_id": "ORD1066",
+   "order_date": "2025-07-02",
+   "region": "East",
+   "category": "Clothing",
+   "units": 2,
+   "unit_price": 65.29,
+   "revenue": 187.71,
+   "customer_rating": 3.6
+  },
+  {
+   "order_id": "ORD1067",
+   "order_date": "2025-07-02",
+   "region": "West",
+   "category": "Office Supplies",
+   "units": 6,
+   "unit_price": 19.73,
+   "revenue": 149.75,
+   "customer_rating": 3
+  },
+  {
+   "order_id": "ORD1068",
+   "order_date": "2025-07-03",
+   "region": "West",
+   "category": "Clothing",
+   "units": 6,
+   "unit_price": 64.27,
+   "revenue": 487.81,
+   "customer_rating": 4.1
+  },
+  {
+   "order_id": "ORD1069",
+   "order_date": "2025-07-05",
+   "region": "North",
+   "category": "Electronics",
+   "units": 1,
+   "unit_price": 229.23,
+   "revenue": 263.61,
+   "customer_rating": 4.5
+  },
+  {
+   "order_id": "ORD1070",
+   "order_date": "2025-07-06",
+   "region": "East",
+   "category": "Furniture",
+   "units": 7,
+   "unit_price": 218.71,
+   "revenue": 2200.77,
+   "customer_rating": 4.4
+  },
+  {
+   "order_id": "ORD1071",
+   "order_date": "2025-07-06",
+   "region": "West",
+   "category": "Electronics",
+   "units": 2,
+   "unit_price": 299.52,
+   "revenue": 757.79,
+   "customer_rating": 3.7
+  },
+  {
+   "order_id": "ORD1072",
+   "order_date": "2025-07-12",
+   "region": "South",
+   "category": "Furniture",
+   "units": 4,
+   "unit_price": 205.15,
+   "revenue": 802.14,
+   "customer_rating": 3.2
+  },
+  {
+   "order_id": "ORD1073",
+   "order_date": "2025-07-14",
+   "region": "East",
+   "category": "Office Supplies",
+   "units": 1,
+   "unit_price": 24.93,
+   "revenue": 35.84,
+   "customer_rating": 2.8
+  },
+  {
+   "order_id": "ORD1074",
+   "order_date": "2025-07-15",
+   "region": "East",
+   "category": "Clothing",
+   "units": 5,
+   "unit_price": 61.6,
+   "revenue": 442.75,
+   "customer_rating": 4
+  },
+  {
+   "order_id": "ORD1075",
+   "order_date": "2025-07-15",
+   "region": "North",
+   "category": "Electronics",
+   "units": 8,
+   "unit_price": 231.47,
+   "revenue": 2129.52,
+   "customer_rating": 3.9
+  },
+  {
+   "order_id": "ORD1076",
+   "order_date": "2025-07-18",
+   "region": "East",
+   "category": "Office Supplies",
+   "units": 2,
+   "unit_price": 27.32,
+   "revenue": 78.54,
+   "customer_rating": 4.1
+  },
+  {
+   "order_id": "ORD1077",
+   "order_date": "2025-07-23",
+   "region": "South",
+   "category": "Office Supplies",
+   "units": 7,
+   "unit_price": 23.54,
+   "revenue": 161.07,
+   "customer_rating": 3.9
+  },
+  {
+   "order_id": "ORD1078",
+   "order_date": "2025-07-24",
+   "region": "North",
+   "category": "Clothing",
+   "units": 6,
+   "unit_price": 66.9,
+   "revenue": 461.61,
+   "customer_rating": 3.9
+  },
+  {
+   "order_id": "ORD1079",
+   "order_date": "2025-07-28",
+   "region": "North",
+   "category": "Furniture",
+   "units": 4,
+   "unit_price": 173.46,
+   "revenue": 797.92,
+   "customer_rating": 4.4
+  },
+  {
+   "order_id": "ORD1080",
+   "order_date": "2025-07-28",
+   "region": "West",
+   "category": "Clothing",
+   "units": 3,
+   "unit_price": 60.64,
+   "revenue": 230.13,
+   "customer_rating": 4.3
+  },
+  {
+   "order_id": "ORD1081",
+   "order_date": "2025-08-07",
+   "region": "South",
+   "category": "Electronics",
+   "units": 3,
+   "unit_price": 289.96,
+   "revenue": 739.4,
+   "customer_rating": 5
+  },
+  {
+   "order_id": "ORD1082",
+   "order_date": "2025-08-08",
+   "region": "North",
+   "category": "Furniture",
+   "units": 7,
+   "unit_price": 156.63,
+   "revenue": 1096.41,
+   "customer_rating": 3.3
+  },
+  {
+   "order_id": "ORD1083",
+   "order_date": "2025-08-09",
+   "region": "East",
+   "category": "Office Supplies",
+   "units": 9,
+   "unit_price": 20.22,
+   "revenue": 227.47,
+   "customer_rating": 3.8
+  },
+  {
+   "order_id": "ORD1084",
+   "order_date": "2025-08-11",
+   "region": "East",
+   "category": "Clothing",
+   "units": 4,
+   "unit_price": 64.19,
+   "revenue": 320.95,
+   "customer_rating": null
+  },
+  {
+   "order_id": "ORD1085",
+   "order_date": "2025-08-12",
+   "region": "East",
+   "category": "Electronics",
+   "units": 2,
+   "unit_price": 271.9,
+   "revenue": 679.75,
+   "customer_rating": 4.6
+  },
+  {
+   "order_id": "ORD1086",
+   "order_date": "2025-08-12",
+   "region": "North",
+   "category": "Clothing",
+   "units": 9,
+   "unit_price": 56.27,
+   "revenue": 506.43,
+   "customer_rating": 4.7
+  },
+  {
+   "order_id": "ORD1087",
+   "order_date": "2025-08-13",
+   "region": "West",
+   "category": "Office Supplies",
+   "units": 2,
+   "unit_price": 23.33,
+   "revenue": 51.33,
+   "customer_rating": 3.2
+  },
+  {
+   "order_id": "ORD1088",
+   "order_date": "2025-08-13",
+   "region": "North",
+   "category": "Electronics",
+   "units": 2,
+   "unit_price": 294.55,
+   "revenue": 589.1,
+   "customer_rating": 3.5
+  },
+  {
+   "order_id": "ORD1089",
+   "order_date": "2025-08-14",
+   "region": "West",
+   "category": "Electronics",
+   "units": 2,
+   "unit_price": 237.19,
+   "revenue": 521.82,
+   "customer_rating": 4.8
+  },
+  {
+   "order_id": "ORD1090",
+   "order_date": "2025-08-17",
+   "region": "North",
+   "category": "Clothing",
+   "units": 7,
+   "unit_price": 60.48,
+   "revenue": 423.36,
+   "customer_rating": 3.9
+  },
+  {
+   "order_id": "ORD1091",
+   "order_date": "2025-08-18",
+   "region": "East",
+   "category": "Clothing",
+   "units": 4,
+   "unit_price": 67.83,
+   "revenue": 339.15,
+   "customer_rating": 4.5
+  },
+  {
+   "order_id": "ORD1092",
+   "order_date": "2025-08-19",
+   "region": "West",
+   "category": "Clothing",
+   "units": 5,
+   "unit_price": 63.87,
+   "revenue": 351.28,
+   "customer_rating": 3.4
+  },
+  {
+   "order_id": "ORD1093",
+   "order_date": "2025-08-22",
+   "region": "East",
+   "category": "Office Supplies",
+   "units": 2,
+   "unit_price": 26.15,
+   "revenue": 65.38,
+   "customer_rating": 4.2
+  },
+  {
+   "order_id": "ORD1094",
+   "order_date": "2025-08-23",
+   "region": "East",
+   "category": "Office Supplies",
+   "units": 8,
+   "unit_price": 22.15,
+   "revenue": 221.5,
+   "customer_rating": 3.7
+  },
+  {
+   "order_id": "ORD1095",
+   "order_date": "2025-08-23",
+   "region": "East",
+   "category": "Clothing",
+   "units": 8,
+   "unit_price": 66.68,
+   "revenue": 666.8,
+   "customer_rating": 4.2
+  },
+  {
+   "order_id": "ORD1096",
+   "order_date": "2025-08-25",
+   "region": "South",
+   "category": "Clothing",
+   "units": 4,
+   "unit_price": 49.64,
+   "revenue": 168.78,
+   "customer_rating": 4.6
+  },
+  {
+   "order_id": "ORD1097",
+   "order_date": "2025-08-25",
+   "region": "East",
+   "category": "Electronics",
+   "units": 3,
+   "unit_price": 296.3,
+   "revenue": 1111.13,
+   "customer_rating": 4.2
+  },
+  {
+   "order_id": "ORD1098",
+   "order_date": "2025-08-26",
+   "region": "North",
+   "category": "Office Supplies",
+   "units": 9,
+   "unit_price": 21.15,
+   "revenue": 190.35,
+   "customer_rating": 3.9
+  },
+  {
+   "order_id": "ORD1099",
+   "order_date": "2025-08-26",
+   "region": "West",
+   "category": "Furniture",
+   "units": 1,
+   "unit_price": 198.16,
+   "revenue": 217.98,
+   "customer_rating": 3.5
+  },
+  {
+   "order_id": "ORD1100",
+   "order_date": "2025-08-27",
+   "region": "West",
+   "category": "Office Supplies",
+   "units": 1,
+   "unit_price": 26.71,
+   "revenue": 29.38,
+   "customer_rating": 2.9
+  },
+  {
+   "order_id": "ORD1101",
+   "order_date": "2025-09-02",
+   "region": "North",
+   "category": "Electronics",
+   "units": 5,
+   "unit_price": 268.96,
+   "revenue": 1344.8,
+   "customer_rating": 4.6
+  },
+  {
+   "order_id": "ORD1102",
+   "order_date": "2025-09-04",
+   "region": "East",
+   "category": "Electronics",
+   "units": 3,
+   "unit_price": 263.58,
+   "revenue": 988.42,
+   "customer_rating": 3.9
+  },
+  {
+   "order_id": "ORD1103",
+   "order_date": "2025-09-07",
+   "region": "North",
+   "category": "Office Supplies",
+   "units": 3,
+   "unit_price": 19.8,
+   "revenue": 59.4,
+   "customer_rating": null
+  },
+  {
+   "order_id": "ORD1104",
+   "order_date": "2025-09-10",
+   "region": "West",
+   "category": "Office Supplies",
+   "units": 3,
+   "unit_price": 26.13,
+   "revenue": 86.23,
+   "customer_rating": 3
+  },
+  {
+   "order_id": "ORD1105",
+   "order_date": "2025-09-10",
+   "region": "West",
+   "category": "Office Supplies",
+   "units": 9,
+   "unit_price": 20.75,
+   "revenue": 205.43,
+   "customer_rating": 3
+  },
+  {
+   "order_id": "ORD1106",
+   "order_date": "2025-09-15",
+   "region": "North",
+   "category": "Electronics",
+   "units": 1,
+   "unit_price": 215.63,
+   "revenue": 215.63,
+   "customer_rating": 4
+  },
+  {
+   "order_id": "ORD1107",
+   "order_date": "2025-09-18",
+   "region": "North",
+   "category": "Office Supplies",
+   "units": 8,
+   "unit_price": 19.15,
+   "revenue": 153.2,
+   "customer_rating": null
+  },
+  {
+   "order_id": "ORD1108",
+   "order_date": "2025-09-18",
+   "region": "North",
+   "category": "Office Supplies",
+   "units": 7,
+   "unit_price": 25.68,
+   "revenue": 179.76,
+   "customer_rating": 2.8
+  },
+  {
+   "order_id": "ORD1109",
+   "order_date": "2025-09-19",
+   "region": "North",
+   "category": "Office Supplies",
+   "units": 6,
+   "unit_price": 26.19,
+   "revenue": 157.14,
+   "customer_rating": 3.7
+  },
+  {
+   "order_id": "ORD1110",
+   "order_date": "2025-09-20",
+   "region": "North",
+   "category": "Furniture",
+   "units": 2,
+   "unit_price": 200.14,
+   "revenue": 400.28,
+   "customer_rating": 3.6
+  },
+  {
+   "order_id": "ORD1111",
+   "order_date": "2025-09-25",
+   "region": "South",
+   "category": "Office Supplies",
+   "units": 9,
+   "unit_price": 22.81,
+   "revenue": 174.5,
+   "customer_rating": 3.4
+  },
+  {
+   "order_id": "ORD1112",
+   "order_date": "2025-09-26",
+   "region": "North",
+   "category": "Electronics",
+   "units": 1,
+   "unit_price": 236.69,
+   "revenue": 236.69,
+   "customer_rating": 3.8
+  },
+  {
+   "order_id": "ORD1113",
+   "order_date": "2025-09-27",
+   "region": "East",
+   "category": "Clothing",
+   "units": 9,
+   "unit_price": 62.23,
+   "revenue": 700.09,
+   "customer_rating": 4.6
+  },
+  {
+   "order_id": "ORD1114",
+   "order_date": "2025-10-01",
+   "region": "North",
+   "category": "Electronics",
+   "units": 9,
+   "unit_price": 204.01,
+   "revenue": 2478.72,
+   "customer_rating": 3.5
+  },
+  {
+   "order_id": "ORD1115",
+   "order_date": "2025-10-03",
+   "region": "East",
+   "category": "Office Supplies",
+   "units": 5,
+   "unit_price": 21.65,
+   "revenue": 182.67,
+   "customer_rating": 3.8
+  },
+  {
+   "order_id": "ORD1116",
+   "order_date": "2025-10-05",
+   "region": "South",
+   "category": "Furniture",
+   "units": 1,
+   "unit_price": 198.93,
+   "revenue": 228.27,
+   "customer_rating": 4
+  },
+  {
+   "order_id": "ORD1117",
+   "order_date": "2025-10-06",
+   "region": "South",
+   "category": "Office Supplies",
+   "units": 9,
+   "unit_price": 23.03,
+   "revenue": 237.84,
+   "customer_rating": 4.2
+  },
+  {
+   "order_id": "ORD1118",
+   "order_date": "2025-10-08",
+   "region": "West",
+   "category": "Furniture",
+   "units": 3,
+   "unit_price": 157.22,
+   "revenue": 700.42,
+   "customer_rating": 4.3
+  },
+  {
+   "order_id": "ORD1119",
+   "order_date": "2025-10-18",
+   "region": "West",
+   "category": "Clothing",
+   "units": 6,
+   "unit_price": 54.47,
+   "revenue": 485.33,
+   "customer_rating": 3.9
+  },
+  {
+   "order_id": "ORD1120",
+   "order_date": "2025-10-21",
+   "region": "West",
+   "category": "Clothing",
+   "units": 8,
+   "unit_price": 65.65,
+   "revenue": 779.92,
+   "customer_rating": 4.2
+  },
+  {
+   "order_id": "ORD1121",
+   "order_date": "2025-10-22",
+   "region": "North",
+   "category": "Office Supplies",
+   "units": 5,
+   "unit_price": 22.6,
+   "revenue": 152.55,
+   "customer_rating": 3.6
+  },
+  {
+   "order_id": "ORD1122",
+   "order_date": "2025-10-26",
+   "region": "North",
+   "category": "Office Supplies",
+   "units": 8,
+   "unit_price": 19.84,
+   "revenue": 214.27,
+   "customer_rating": 4.4
+  },
+  {
+   "order_id": "ORD1123",
+   "order_date": "2025-11-03",
+   "region": "North",
+   "category": "Clothing",
+   "units": 4,
+   "unit_price": 62.22,
+   "revenue": 335.99,
+   "customer_rating": 4.1
+  },
+  {
+   "order_id": "ORD1124",
+   "order_date": "2025-11-11",
+   "region": "East",
+   "category": "Furniture",
+   "units": 5,
+   "unit_price": 155.95,
+   "revenue": 1315.83,
+   "customer_rating": 4.2
+  },
+  {
+   "order_id": "ORD1125",
+   "order_date": "2025-11-12",
+   "region": "South",
+   "category": "Office Supplies",
+   "units": 1,
+   "unit_price": 21.23,
+   "revenue": 24.36,
+   "customer_rating": 4.3
+  },
+  {
+   "order_id": "ORD1126",
+   "order_date": "2025-11-14",
+   "region": "North",
+   "category": "Clothing",
+   "units": 7,
+   "unit_price": 53.5,
+   "revenue": 505.58,
+   "customer_rating": 3.5
+  },
+  {
+   "order_id": "ORD1127",
+   "order_date": "2025-11-14",
+   "region": "South",
+   "category": "Office Supplies",
+   "units": 6,
+   "unit_price": 21.12,
+   "revenue": 145.41,
+   "customer_rating": 4.2
+  },
+  {
+   "order_id": "ORD1128",
+   "order_date": "2025-11-19",
+   "region": "East",
+   "category": "Clothing",
+   "units": 6,
+   "unit_price": 65.54,
+   "revenue": 663.59,
+   "customer_rating": 3.9
+  },
+  {
+   "order_id": "ORD1129",
+   "order_date": "2025-11-20",
+   "region": "North",
+   "category": "Electronics",
+   "units": 3,
+   "unit_price": 271.2,
+   "revenue": 1098.36,
+   "customer_rating": 3.8
+  },
+  {
+   "order_id": "ORD1130",
+   "order_date": "2025-11-20",
+   "region": "West",
+   "category": "Clothing",
+   "units": 7,
+   "unit_price": 62.57,
+   "revenue": 650.42,
+   "customer_rating": 3.6
+  },
+  {
+   "order_id": "ORD1131",
+   "order_date": "2025-11-21",
+   "region": "West",
+   "category": "Electronics",
+   "units": 2,
+   "unit_price": 284.55,
+   "revenue": 845.11,
+   "customer_rating": 4
+  },
+  {
+   "order_id": "ORD1132",
+   "order_date": "2025-11-22",
+   "region": "East",
+   "category": "Clothing",
+   "units": 1,
+   "unit_price": 59.66,
+   "revenue": 100.68,
+   "customer_rating": 4.1
+  },
+  {
+   "order_id": "ORD1133",
+   "order_date": "2025-11-23",
+   "region": "East",
+   "category": "Clothing",
+   "units": 2,
+   "unit_price": 49.95,
+   "revenue": 168.58,
+   "customer_rating": 4.1
+  },
+  {
+   "order_id": "ORD1134",
+   "order_date": "2025-11-28",
+   "region": "North",
+   "category": "Electronics",
+   "units": 8,
+   "unit_price": 279.66,
+   "revenue": 3020.33,
+   "customer_rating": 4.2
+  },
+  {
+   "order_id": "ORD1135",
+   "order_date": "2025-12-06",
+   "region": "East",
+   "category": "Office Supplies",
+   "units": 6,
+   "unit_price": 23.51,
+   "revenue": 238.04,
+   "customer_rating": 3.8
+  },
+  {
+   "order_id": "ORD1136",
+   "order_date": "2025-12-07",
+   "region": "West",
+   "category": "Furniture",
+   "units": 5,
+   "unit_price": 181.07,
+   "revenue": 1344.44,
+   "customer_rating": 3.4
+  },
+  {
+   "order_id": "ORD1137",
+   "order_date": "2025-12-07",
+   "region": "West",
+   "category": "Electronics",
+   "units": 3,
+   "unit_price": 253.55,
+   "revenue": 1129.57,
+   "customer_rating": 4.4
+  },
+  {
+   "order_id": "ORD1138",
+   "order_date": "2025-12-09",
+   "region": "South",
+   "category": "Furniture",
+   "units": 3,
+   "unit_price": 201.93,
+   "revenue": 695.14,
+   "customer_rating": 3.7
+  },
+  {
+   "order_id": "ORD1139",
+   "order_date": "2025-12-10",
+   "region": "North",
+   "category": "Electronics",
+   "units": 5,
+   "unit_price": 242.73,
+   "revenue": 1638.43,
+   "customer_rating": 3.9
+  },
+  {
+   "order_id": "ORD1140",
+   "order_date": "2025-12-13",
+   "region": "West",
+   "category": "Electronics",
+   "units": 1,
+   "unit_price": 205.52,
+   "revenue": 305.2,
+   "customer_rating": 4
+  },
+  {
+   "order_id": "ORD1141",
+   "order_date": "2025-12-14",
+   "region": "North",
+   "category": "Office Supplies",
+   "units": 6,
+   "unit_price": 25.32,
+   "revenue": 205.09,
+   "customer_rating": 4.3
+  },
+  {
+   "order_id": "ORD1142",
+   "order_date": "2025-12-15",
+   "region": "East",
+   "category": "Electronics",
+   "units": 9,
+   "unit_price": 259.71,
+   "revenue": 3944.35,
+   "customer_rating": null
+  },
+  {
+   "order_id": "ORD1143",
+   "order_date": "2025-12-15",
+   "region": "West",
+   "category": "Electronics",
+   "units": 6,
+   "unit_price": 261.93,
+   "revenue": 2333.8,
+   "customer_rating": 5
+  },
+  {
+   "order_id": "ORD1144",
+   "order_date": "2025-12-17",
+   "region": "West",
+   "category": "Furniture",
+   "units": 6,
+   "unit_price": 155.31,
+   "revenue": 1383.81,
+   "customer_rating": 4.3
+  },
+  {
+   "order_id": "ORD1145",
+   "order_date": "2025-12-18",
+   "region": "South",
+   "category": "Office Supplies",
+   "units": 4,
+   "unit_price": 22.62,
+   "revenue": 103.83,
+   "customer_rating": 3.1
+  },
+  {
+   "order_id": "ORD1146",
+   "order_date": "2025-12-21",
+   "region": "North",
+   "category": "Electronics",
+   "units": 5,
+   "unit_price": 289.17,
+   "revenue": 1951.9,
+   "customer_rating": 4
+  },
+  {
+   "order_id": "ORD1147",
+   "order_date": "2025-12-23",
+   "region": "West",
+   "category": "Clothing",
+   "units": 2,
+   "unit_price": 48.71,
+   "revenue": 144.67,
+   "customer_rating": null
+  },
+  {
+   "order_id": "ORD1148",
+   "order_date": "2025-12-24",
+   "region": "West",
+   "category": "Electronics",
+   "units": 7,
+   "unit_price": 252.87,
+   "revenue": 2628.58,
+   "customer_rating": 4.7
+  },
+  {
+   "order_id": "ORD1149",
+   "order_date": "2025-12-25",
+   "region": "East",
+   "category": "Office Supplies",
+   "units": 3,
+   "unit_price": 19.59,
+   "revenue": 99.17,
+   "customer_rating": 3.9
+  },
+  {
+   "order_id": "ORD1150",
+   "order_date": "2025-12-27",
+   "region": "East",
+   "category": "Office Supplies",
+   "units": 4,
+   "unit_price": 24.56,
+   "revenue": 165.78,
+   "customer_rating": 4.4
+  }
+ ],
+ "chats": [
+  {
+   "id": "summary",
+   "question": "Summarize this dataset",
+   "answer": "This is a sales dataset with **150 orders** placed between **2025-01-01** and **2025-12-27**, across **4 regions** and **4 product categories**.\n\n* Total revenue: **$94,738**\n* Average order value: **$631.58**\n* Top region: **North** with $36,754\n* Top category: **Electronics** with $53,147\n* Customer ratings average **3.90** out of 5, with **9** orders missing a rating\n\nRevenue is strongest in the last quarter of the year, which looks like a holiday season lift."
+  },
+  {
+   "id": "stats",
+   "question": "What are the key statistics?",
+   "answer": "Here are the main numeric columns:\n\n| Column | Min | Median | Mean | Max |\n| --- | --- | --- | --- | --- |\n| units | 1 | 5 | 4.71 | 9 |\n| unit_price | $18.91 | $62.22 | $117.29 | $299.52 |\n| revenue | $16.28 | $320.95 | $631.58 | $3,944.35 |\n| customer_rating | 2.8 | 3.9 | 3.90 | 5 |\n\nThe **mean revenue ($631.58)** is well above the **median ($320.95)**, so a small number of large orders pull the average up."
+  },
+  {
+   "id": "region",
+   "question": "Which region has the highest revenue? Show a bar chart",
+   "answer": "**North** leads with **$36,754** in revenue, **38.8%** of the total. **South** is lowest at $7,063.\n\nThe chart below ranks all four regions.",
+   "chartSpec": {
+    "data": [
+     {
+      "type": "bar",
+      "x": [
+       "North",
+       "West",
+       "East",
+       "South"
+      ],
+      "y": [
+       36753.52,
+       27462.27,
+       23458.69,
+       7063.09
+      ],
+      "marker": {
+       "color": [
+        "#dc143c",
+        "#ff6b6b",
+        "#ff8e8e",
+        "#b01030"
+       ]
+      }
+     }
+    ],
+    "layout": {
+     "title": {
+      "text": "Revenue by region",
+      "font": {
+       "color": "#dc143c"
+      }
+     },
+     "paper_bgcolor": "rgba(0,0,0,0)",
+     "plot_bgcolor": "rgba(0,0,0,0)",
+     "font": {
+      "color": "#ffffff"
+     },
+     "xaxis": {
+      "gridcolor": "#2a2a2a",
+      "linecolor": "#444"
+     },
+     "yaxis": {
+      "title": "Revenue ($)",
+      "gridcolor": "#2a2a2a",
+      "linecolor": "#444"
+     },
+     "margin": {
+      "t": 60,
+      "r": 20,
+      "b": 60,
+      "l": 60
+     }
+    }
+   }
+  },
+  {
+   "id": "monthly",
+   "question": "Show monthly revenue as a line chart",
+   "answer": "Revenue peaks in **December** at **$18,312**. The final quarter (October to December) brings in **$32,646**, or **34.5%** of the year.",
+   "chartSpec": {
+    "data": [
+     {
+      "type": "scatter",
+      "mode": "lines+markers",
+      "x": [
+       "2025-01",
+       "2025-02",
+       "2025-03",
+       "2025-04",
+       "2025-05",
+       "2025-06",
+       "2025-07",
+       "2025-08",
+       "2025-09",
+       "2025-10",
+       "2025-11",
+       "2025-12"
+      ],
+      "y": [
+       7322.03,
+       2533.94,
+       10300.28,
+       6703.93,
+       7398.16,
+       5226.92,
+       9186.96,
+       8517.75,
+       4901.57,
+       5459.99,
+       8874.24,
+       18311.8
+      ],
+      "line": {
+       "color": "#dc143c",
+       "width": 3
+      },
+      "marker": {
+       "color": "#ff6b6b",
+       "size": 8
+      }
+     }
+    ],
+    "layout": {
+     "title": {
+      "text": "Monthly revenue, 2025",
+      "font": {
+       "color": "#dc143c"
+      }
+     },
+     "paper_bgcolor": "rgba(0,0,0,0)",
+     "plot_bgcolor": "rgba(0,0,0,0)",
+     "font": {
+      "color": "#ffffff"
+     },
+     "xaxis": {
+      "gridcolor": "#2a2a2a",
+      "linecolor": "#444"
+     },
+     "yaxis": {
+      "title": "Revenue ($)",
+      "gridcolor": "#2a2a2a",
+      "linecolor": "#444"
+     },
+     "margin": {
+      "t": 60,
+      "r": 20,
+      "b": 60,
+      "l": 60
+     }
+    }
+   }
+  },
+  {
+   "id": "ratings",
+   "question": "Which category has the best customer ratings?",
+   "answer": "**Electronics** is rated highest at **4.21** out of 5, while **Office Supplies** is lowest at **3.63**. Orders with no rating are left out of these averages.",
+   "chartSpec": {
+    "data": [
+     {
+      "type": "bar",
+      "x": [
+       "Electronics",
+       "Clothing",
+       "Furniture",
+       "Office Supplies"
+      ],
+      "y": [
+       4.21,
+       3.99,
+       3.87,
+       3.63
+      ],
+      "marker": {
+       "color": [
+        "#dc143c",
+        "#ff6b6b",
+        "#ff8e8e",
+        "#b01030"
+       ]
+      }
+     }
+    ],
+    "layout": {
+     "title": {
+      "text": "Average rating by category",
+      "font": {
+       "color": "#dc143c"
+      }
+     },
+     "paper_bgcolor": "rgba(0,0,0,0)",
+     "plot_bgcolor": "rgba(0,0,0,0)",
+     "font": {
+      "color": "#ffffff"
+     },
+     "xaxis": {
+      "gridcolor": "#2a2a2a",
+      "linecolor": "#444"
+     },
+     "yaxis": {
+      "title": "Average rating",
+      "range": [
+       0,
+       5
+      ],
+      "gridcolor": "#2a2a2a",
+      "linecolor": "#444"
+     },
+     "margin": {
+      "t": 60,
+      "r": 20,
+      "b": 60,
+      "l": 60
+     }
+    }
+   }
+  },
+  {
+   "id": "missing",
+   "question": "Any missing values?",
+   "answer": "Only one column has gaps: **customer_rating** is missing in **9 of 150 orders** (6.0%). Every other column is complete.\n\nFor averages I would simply skip those rows. If ratings mattered more, the next step would be to ask customers who did not respond."
+  }
+ ]
+}

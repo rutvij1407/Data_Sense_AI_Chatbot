@@ -36,10 +36,15 @@ export function useDataset() {
     }
   }, []);
 
+  const loadSummary = useCallback((s: DataSummary) => {
+    setError(null);
+    setSummary(s);
+  }, []);
+
   const clearDataset = useCallback(() => {
     setSummary(null);
     setError(null);
   }, []);
 
-  return { summary, isLoading, error, uploadFile, clearDataset };
+  return { summary, isLoading, error, uploadFile, loadSummary, clearDataset };
 }

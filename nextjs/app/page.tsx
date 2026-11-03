@@ -1,7 +1,10 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { useDataset } from "@/hooks/useDataset";
 import { useChat } from "@/hooks/useChat";
+import { useDemoMode } from "@/hooks/useDemoMode";
+import { DEMO_CHATS, DEMO_FILE_NAME, getDemoSummary } from "@/lib/demo/demo";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Header } from "@/components/layout/Header";
 import { MetricCards } from "@/components/dataset/MetricCards";
@@ -9,8 +12,38 @@ import { DataPreviewTable } from "@/components/dataset/DataPreviewTable";
 import { ChatPanel } from "@/components/chat/ChatPanel";
 
 export default function Home() {
-  const { summary, isLoading, error, uploadFile, clearDataset } = useDataset();
-  const { messages, isStreaming, requestCount, maxRequests, sendMessage, clearChat } = useChat(summary);
+  const demoFlag = useDemoMode();
+  const isDemo = demoFlag === true;
+  const { summary, isLoading, error, uploadFile, loadSummary, clearDataset } = useDataset();
+  const { messages, isStreaming, requestCount, maxRequests, sendMessage, clearChat } = useChat(summary, isDemo);
+
+  const loadDemo = () => loadSummary(getDemoSummary());
+  const autoLoaded = useRef(false);
+  const autoplayed = useRef(false);
+  const sendRef = useRef(sendMessage);
+  sendRef.current = sendMessage;
+
+  // In demo mode, start with the sample dataset loaded so there is something to see.
+  useEffect(() => {
+    if (isDemo && !autoLoaded.current) {
+      autoLoaded.current = true;
+      loadSummary(getDemoSummary());
+    }
+  }, [isDemo, loadSummary]);
+
+  // Optional: add ?autoplay=2 to the address to replay the first chats on their own.
+  useEffect(() => {
+    if (!isDemo || autoplayed.current || summary?.fileName !== DEMO_FILE_NAME) return;
+    const n = Number(new URLSearchParams(window.location.search).get("autoplay") ?? 0);
+    if (!n) return;
+    autoplayed.current = true;
+    (async () => {
+      for (const chat of DEMO_CHATS.slice(0, n)) {
+        await sendRef.current(chat.question);
+        await new Promise((resolve) => setTimeout(resolve, 400));
+      }
+    })();
+  }, [isDemo, summary]);
 
   const handleClearDataset = () => {
     clearDataset();
@@ -26,11 +59,12 @@ export default function Home() {
         error={error}
         onFileAccepted={uploadFile}
         onClearDataset={handleClearDataset}
+        demo={isDemo}
       />
 
       {/* Main content */}
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-        <Header requestCount={requestCount} maxRequests={maxRequests} />
+        <Header requestCount={requestCount} maxRequests={maxRequests} demo={isDemo} />
 
         <main className="flex-1 overflow-y-auto">
           {summary ? (
@@ -49,6 +83,8 @@ export default function Home() {
                     maxRequests={maxRequests}
                     summary={summary}
                     onSend={sendMessage}
+                    demo={isDemo}
+                    suggestions={isDemo && summary.fileName === DEMO_FILE_NAME ? DEMO_CHATS.map((c) => c.question) : undefined}
                   />
                 </div>
               </div>
@@ -111,8 +147,16 @@ export default function Home() {
                   ))}
                 </div>
 
+                {isDemo && (
+                  <button
+                    onClick={loadDemo}
+                    className="text-sm text-white bg-gradient-crimson rounded-full px-5 py-2 shadow-crimson"
+                  >
+                    Load the sample dataset
+                  </button>
+                )}
                 <p className="text-sm text-gray-600">
-                  Get started by uploading a file using the sidebar →
+                  {isDemo ? "This is a recorded demo with no live AI. You can also upload a file to explore its summary." : "Get started by uploading a file using the sidebar →"}
                 </p>
               </div>
             </div>

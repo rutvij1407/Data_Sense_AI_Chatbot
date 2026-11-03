@@ -10,6 +10,7 @@ interface SidebarProps {
   error: string | null;
   onFileAccepted: (file: File) => void;
   onClearDataset: () => void;
+  demo?: boolean;
 }
 
 export function Sidebar({
@@ -18,6 +19,7 @@ export function Sidebar({
   error,
   onFileAccepted,
   onClearDataset,
+  demo = false,
 }: SidebarProps) {
   return (
     <aside className="sidebar">
@@ -72,7 +74,7 @@ export function Sidebar({
       {/* Footer */}
       <div className="px-5 py-4 border-t border-crimson/20 mt-auto">
         <p className="text-xs text-gray-600 text-center">
-          DataSense AI · Claude claude-sonnet-4-20250514
+          {demo ? "DataSense AI · Recorded demo on sample data" : "DataSense AI · Claude claude-sonnet-4-20250514"}
         </p>
       </div>
     </aside>

@@ -4,8 +4,8 @@ export async function POST(req: Request) {
   try {
     if (!process.env.ANTHROPIC_API_KEY) {
       return new Response(
-        JSON.stringify({ error: "ANTHROPIC_API_KEY is not configured." }),
-        { status: 500, headers: { "Content-Type": "application/json" } }
+        JSON.stringify({ error: "Live AI is switched off in this deployment. Use the recorded demo." }),
+        { status: 503, headers: { "Content-Type": "application/json" } }
       );
     }
 
