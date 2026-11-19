@@ -8,12 +8,9 @@ import os
 
 load_dotenv()
 
-<<<<<<< HEAD
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
 API_KEY_AVAILABLE = bool(ANTHROPIC_API_KEY)
 
-=======
->>>>>>> 0ea113ce920599aa1623f30bde40ae60e34e6f08
 st.set_page_config(
     page_title="DataSense AI | Analytics Chatbot",
     page_icon="🔴",
@@ -138,22 +135,16 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-<<<<<<< HEAD
 MAX_REQUESTS_PER_SESSION = 30
 
-=======
->>>>>>> 0ea113ce920599aa1623f30bde40ae60e34e6f08
 if "messages" not in st.session_state:
     st.session_state.messages = []
 if "df" not in st.session_state:
     st.session_state.df = None
 if "file_name" not in st.session_state:
     st.session_state.file_name = None
-<<<<<<< HEAD
 if "request_count" not in st.session_state:
     st.session_state.request_count = 0
-=======
->>>>>>> 0ea113ce920599aa1623f30bde40ae60e34e6f08
 
 def get_data_summary(df):
     """Generate a concise summary of the dataframe for the AI"""
@@ -178,11 +169,8 @@ def create_metric_card(label, value, icon):
     """
 
 with st.sidebar:
-<<<<<<< HEAD
     if not API_KEY_AVAILABLE:
         st.warning("Set ANTHROPIC_API_KEY in your .env file to enable AI features.")
-=======
->>>>>>> 0ea113ce920599aa1623f30bde40ae60e34e6f08
     st.markdown("""
     <div style="text-align: center; padding: 20px 0;">
         <h1 style="font-size: 2.5rem; margin: 0;">🔴</h1>
@@ -207,7 +195,7 @@ with st.sidebar:
             else:
                 st.session_state.df = pd.read_excel(uploaded_file)
             st.session_state.file_name = uploaded_file.name
-            st.success(f"✅ Loaded successfully!")
+            st.success("✅ Loaded successfully!")
         except Exception as e:
             st.error(f"Error loading file: {e}")
     
@@ -331,7 +319,6 @@ for message in st.session_state.messages:
         if "figure" in message:
             st.plotly_chart(message["figure"], use_container_width=True)
 
-<<<<<<< HEAD
 if not API_KEY_AVAILABLE:
     st.info("Set ANTHROPIC_API_KEY in your .env file to start asking AI questions about your data.")
 else:
@@ -354,23 +341,6 @@ else:
                             data_summary = get_data_summary(df)
                             
                             system_prompt = """You are DataSense AI, a professional data analyst assistant.
-=======
-if prompt := st.chat_input("Ask about your data..."):
-    if st.session_state.df is None:
-        st.warning("⚠️ Please upload a dataset first!")
-    else:
-        st.session_state.messages.append({"role": "user", "content": prompt})
-        with st.chat_message("user"):
-            st.markdown(prompt)
-        
-        with st.chat_message("assistant"):
-            with st.spinner("🔍 Analyzing..."):
-                try:
-                    df = st.session_state.df
-                    data_summary = get_data_summary(df)
-                    
-                    system_prompt = """You are DataSense AI, a professional data analyst assistant.
->>>>>>> 0ea113ce920599aa1623f30bde40ae60e34e6f08
 
 RULES:
 1. Be concise and professional
@@ -378,22 +348,21 @@ RULES:
 3. Always use the variable name 'df' for the dataframe
 4. Store the figure in a variable called 'fig'
 5. Use the template='plotly_dark' for dark theme charts
-6. Use color_discrete_sequence=['dc143c', 'ff6b6b', 'ff8e8e'] for colors
+6. Use color_discrete_sequence=['#dc143c', '#ff6b6b', '#ff8e8e'] for colors
 7. Format code in ```python blocks
 8. Keep explanations brief but insightful
 
 EXAMPLE CHART CODE:
 ```python
 fig = px.bar(df, x='column', y='value', template='plotly_dark',
-             color_discrete_sequence=['dc143c'])
+             color_discrete_sequence=['#dc143c'])
 fig.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
 ```"""
-<<<<<<< HEAD
                             
                             client = Anthropic(api_key=ANTHROPIC_API_KEY)
                             
                             response = client.messages.create(
-                                model="claude-sonnet-4-20250514",
+                                model=os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-20250514"),
                                 max_tokens=512,
                                 system=system_prompt,
                                 messages=[
@@ -440,45 +409,3 @@ fig.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
                             
                         except Exception as e:
                             st.error(f"❌ Error: {e}")
-=======
-                    
-                    client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-                    
-                    response = client.messages.create(
-                        model="claude-sonnet-4-20250514",
-                        max_tokens=1024,
-                        system=system_prompt,
-                        messages=[
-                            {"role": "user", "content": f"Dataset summary:\n{data_summary}\n\nQuestion: {prompt}"}
-                        ]
-                    )
-                    
-                    answer = response.content[0].text
-                    st.markdown(answer)
-                    
-                    fig = None
-                    if "```python" in answer:
-                        code = answer.split("```python")[1].split("```")[0]
-                        try:
-                            exec_globals = {
-                                "pd": pd, 
-                                "px": px, 
-                                "go": go, 
-                                "df": df,
-                                "st": st
-                            }
-                            exec(code, exec_globals)
-                            if "fig" in exec_globals:
-                                fig = exec_globals["fig"]
-                                st.plotly_chart(fig, use_container_width=True)
-                        except Exception as e:
-                            st.error(f"⚠️ Could not render chart: {e}")
-                    
-                    message_data = {"role": "assistant", "content": answer}
-                    if fig:
-                        message_data["figure"] = fig
-                    st.session_state.messages.append(message_data)
-                    
-                except Exception as e:
-                    st.error(f"❌ Error: {e}")
->>>>>>> 0ea113ce920599aa1623f30bde40ae60e34e6f08
