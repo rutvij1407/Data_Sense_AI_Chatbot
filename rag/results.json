@@ -1,0 +1,115 @@
+{
+  "chunks": 30,
+  "test_answerable": 30,
+  "test_unanswerable": 4,
+  "retrieval": {
+    "bm25": {
+      "hit@1": 0.4666666666666667,
+      "hit@3": 0.7666666666666667,
+      "MRR": 0.6353703703703704
+    },
+    "dense": {
+      "hit@1": 0.5666666666666667,
+      "hit@3": 0.8333333333333334,
+      "MRR": 0.7130952380952381
+    },
+    "hybrid": {
+      "hit@1": 0.6333333333333333,
+      "hit@3": 0.8333333333333334,
+      "MRR": 0.7573148148148147
+    }
+  },
+  "abstain_threshold": 0.64,
+  "answer": {
+    "extractive": {
+      "accuracy": 0.5333333333333333,
+      "wrongly_abstained": 1,
+      "abstained_on_unanswerable": "3/4",
+      "misses": [
+        {
+          "q": "How many AI requests is one session allowed?",
+          "got": "Sets a hard cap on how many AI requests a single user session can make. Cost-control mechanics** via per-session request caps and limited `max_tokens`."
+        },
+        {
+          "q": "What kinds of files can a user upload?",
+          "got": "A hint pointing to the sidebar to upload a file. These show off features before the user uploads any data."
+        },
+        {
+          "q": "When does the web app run in demo mode?",
+          "got": "The app asks /api/config whether to run in demo mode. It has a demo mode and a live mode."
+        },
+        {
+          "q": "What happens if the config request fails?",
+          "got": "I could not find that in the documents."
+        },
+        {
+          "q": "How does the Python app read the API key from a file?",
+          "got": "Loads key/value pairs from `.env` into the environment, so `os.getenv(\"ANTHROPIC_API_KEY\")` works. Reads the Claude API key from the environment."
+        },
+        {
+          "q": "Which four numbers appear on the metric cards?",
+          "got": "Each card is rendered with `create_metric_card(...)`. Displays three metric-like cards (Data Analysis, Visualizations, AI Powered) with icons and short descript"
+        },
+        {
+          "q": "What chart theme does the system prompt ask for?",
+          "got": "The app renders `prompt = st.chat_input(\"Ask about your data...\")`. It constructs a `system_prompt` that tells Claude how to behave:"
+        },
+        {
+          "q": "How many recorded example chats does the demo replay?",
+          "got": "It matches your question to a recorded chat and replays it with a typing effect. nextjs/lib/demo: the sample data and the matching of questions to recorded chat"
+        },
+        {
+          "q": "What does the sidebar footer say?",
+          "got": "A hint pointing to the sidebar to upload a file. `initial_sidebar_state=\"expanded\"`: Opens the sidebar by default."
+        },
+        {
+          "q": "What does the page CSS do for the look of the app?",
+          "got": "Button styles (gradients, hover effects, shadows). It is centered and styled according to the CSS defined earlier."
+        },
+        {
+          "q": "How does the app control API costs?",
+          "got": "This helps control Claude API costs. The app asks /api/config whether to run in demo mode."
+        },
+        {
+          "q": "What is sent to the model in live mode of the Next.js app?",
+          "got": "Next.js web app (folder nextjs): the version that is deployed. Go to the nextjs folder and run npm install."
+        },
+        {
+          "q": "How does a chat message keep its chart when the page reruns?",
+          "got": "The app renders `prompt = st.chat_input(\"Ask about your data...\")`. Why:** This keeps the full chat history visible across interactions, creating a proper conve"
+        },
+        {
+          "q": "What does the demo do instead of calling the API?",
+          "got": "The app asks /api/config whether to run in demo mode. In demo mode the chat never calls the API."
+        }
+      ]
+    },
+    "local": {
+      "accuracy": 0.8333333333333334,
+      "wrongly_abstained": 1,
+      "abstained_on_unanswerable": "3/4",
+      "misses": [
+        {
+          "q": "What information about the dataset is sent to the model in the Python version?",
+          "got": "In the Python version, the model is given a compact textual summary of the dataset, including column names, data types, sample rows, numeric statistics, and mis"
+        },
+        {
+          "q": "What happens if the config request fails?",
+          "got": "I could not find that in the documents."
+        },
+        {
+          "q": "Which version of Next.js is used?",
+          "got": "The version of Next.js used is the one that is deployed, which has a demo mode and a live mode."
+        },
+        {
+          "q": "How does the app control API costs?",
+          "got": "The app controls API costs by enforcing a hard cap on the number of AI requests a single user session can make (`MAX_REQUESTS_PER_SESSION`)."
+        },
+        {
+          "q": "What is sent to the model in live mode of the Next.js app?",
+          "got": "In live mode of the Next.js app, a key is required to be set in the `.env.local` file to access the Anthropic API."
+        }
+      ]
+    }
+  }
+}

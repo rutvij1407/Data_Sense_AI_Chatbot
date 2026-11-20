@@ -44,6 +44,35 @@ The recorded answers are not typed by hand. A script (nextjs/scripts/generate-de
 
 To rebuild the sample data and recorded chats, run node scripts/generate-demo.mjs inside the nextjs folder.
 
+**Ask your documents (RAG)**
+
+The Streamlit app has a second page, Ask Documents, that answers questions from text and markdown files instead of a CSV. It retrieves the most relevant passages, writes an answer from only those passages, and shows the sources with similarity scores. It declines to answer when nothing relevant is found.
+
+![Ask Documents page](docs/screenshots/rag_documents.png)
+
+How it works (code in the rag folder):
+
+* Chunking: documents are split by section heading and paragraph, so every chunk keeps its heading.
+* Retrieval: BM25 keyword search and dense embeddings (BAAI/bge-small-en-v1.5, run locally with fastembed) combined with reciprocal rank fusion.
+* Answering: three modes. Claude (needs ANTHROPIC_API_KEY), a small local open model (Qwen2.5 1.5B through llama.cpp, free and offline), or an extractive fallback that returns the closest sentences. The best available mode is used.
+* Abstaining: if the best dense similarity is below 0.64, the answer is "I could not find that in the documents." The threshold was chosen on a separate dev split.
+
+Measured results on a test set I wrote by hand (30 answerable and 4 unanswerable questions about this repo's README and code walkthrough, 30 passages in total). Run python -m rag.evaluate to reproduce.
+
+| Retriever | Right section ranked first | Right section in top 3 | MRR |
+|---|---|---|---|
+| BM25 | 47% | 77% | 0.64 |
+| Dense embeddings | 57% | 83% | 0.71 |
+| Hybrid (used) | 63% | 83% | 0.76 |
+
+| Answer mode | Answer accuracy | Declined the 4 unanswerable questions |
+|---|---|---|
+| Extractive | 53% (16 of 30) | 3 of 4 |
+| Local Qwen2.5 1.5B | 83% (25 of 30) | 3 of 4 |
+| Claude | not measured yet, needs an API key | not measured yet |
+
+Accuracy counts an answer as correct only if it contains the expected key words, so a correct answer worded differently is scored as a miss. Both modes wrongly declined one answerable question. The test set is small and all questions are about one project's documentation, so treat these as a baseline, not a benchmark.
+
 **Tech stack**
 
 Next.js 14, React 18, TypeScript, Tailwind CSS, Plotly, Papa Parse and SheetJS for file parsing, Framer Motion, and the Anthropic API for live mode. Deployed on Vercel.
@@ -56,6 +85,8 @@ Next.js 14, React 18, TypeScript, Tailwind CSS, Plotly, Papa Parse and SheetJS f
 * nextjs/lib/demo: the sample data and the matching of questions to recorded chats
 * nextjs/scripts: the demo data generator
 * app_project_rutvij.py: the Streamlit prototype (see requirements.txt)
+* pages/1_Ask_Documents.py: the document question answering page
+* rag: chunking, retrieval, answering and the evaluation script with its test set
 * docs: extra notes and screenshots
 
 **Author**
